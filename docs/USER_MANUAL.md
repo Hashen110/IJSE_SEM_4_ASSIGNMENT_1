@@ -32,7 +32,7 @@ Get all customer. Run ``python main.py customer all --help`` to see required and
 ```
 python main.py customer update
 ```
-Update customer by id. Note you cannot update customer id. Run ``python main.py customer update --help`` to see required flags
+Update customer by id. Note you cannot update customer id. Run ``python main.py customer update --help`` to see required and optional flags
 
 #### Remove
 ```
