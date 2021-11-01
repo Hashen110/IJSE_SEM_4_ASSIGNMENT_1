@@ -38,7 +38,7 @@
 - Output
   - `Customer` list
 - Process
-  - Get all customers and return as a list of `Customers`
+  - Get all customers and return as a list of `Customer`
 
 ### Update
 - Command - `python main.py customer update`
@@ -60,3 +60,56 @@
   - `Customer` or `None`
 - Process
   - Find customer by id and remove customer. If customer not found return `None`
+
+
+## Item
+
+### Create
+- Command - `python main.py item create`
+- Input
+  - Name
+  - Price
+  - Quantity
+- Output
+  - `Item`
+- Process
+  - Create item with uuid value as json format
+
+### Find
+- Command - `python main.py item find`
+- Input
+  - Code
+- Output
+  - `Item` or `None`
+- Process
+  - Find item by given code. If item not found return `None`
+
+### All
+- Command - `python main.py item all`
+- Input
+  - Limit (optional)
+- Output
+  - `Item` list
+- Process
+  - Get all items and return as a list of `Item`
+
+### Update
+- Command - `python main.py item update`
+- Input
+  - Code
+  - Name (optional)
+  - Price (optional)
+  - Quantity (optional)
+- Output
+  - `Item` or `None`
+- Process
+  - Find item by code and update item fields by given values. If item not found return `None`
+
+### Remove
+- Command - `python main.py item remove`
+- Input
+  - Code
+- Output
+  - `Item` or `None`
+- Process
+  - Find item by code and remove item. If item not found return `None`
