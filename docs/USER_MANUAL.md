@@ -6,7 +6,13 @@
 ```
 python main.py init
 ```
-Please run above command before running any command. Command will initialize the app with necessary files
+Please run above command before running any command. Command will initialize the app with necessary files.
+
+### Destroy
+```
+python main.py destroy
+```
+Destroy initialized app if initialized.
 
 ### Customer
 

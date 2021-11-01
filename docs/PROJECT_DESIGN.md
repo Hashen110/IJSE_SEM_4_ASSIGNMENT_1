@@ -9,6 +9,15 @@
 - Process
   - Create necessary folders and files if not exists
 
+## Destroy
+- Command - `python main.py destroy`
+- Input
+  - None
+- Output
+  - None
+- Process
+  - Delete folders and files which created by `init` command
+
 ## Customer
 
 ### Create

@@ -1,3 +1,6 @@
+import shutil
+from pathlib import Path
+
 import click
 
 from .customer import Customer, customer
@@ -10,8 +13,17 @@ def init() -> None:
         Customer.init()
         Item.init()
         print('Initialization complete')
-    except (FileNotFoundError, OSError):
+    except OSError:
         print('Error occurred during initialization')
+
+
+@click.command('destroy', help='Destroy initialized app')
+def destroy() -> None:
+    try:
+        shutil.rmtree(Path.cwd() / 'db')
+        print('App destroyed')
+    except OSError:
+        pass
 
 
 @click.group()
@@ -20,5 +32,6 @@ def cli() -> None:
 
 
 cli.add_command(init)
+cli.add_command(destroy)
 cli.add_command(customer)
 cli.add_command(item)
