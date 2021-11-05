@@ -122,3 +122,57 @@
   - `Item` or `None`
 - Process
   - Find item by code and remove item. If item not found return `None`
+
+
+## Order
+
+### Create
+- Command - `python main.py order create`
+- Input
+  - Customer id
+  - Date (optional)
+  - Items
+- Output
+  - `Order`
+- Process
+  - Check if a customer is exists. If not Abort.
+  - If date isn't provided add current timestamp to the date
+  - Add items by item code. Before add item to the order item code and quantity will validate
+
+### Find
+- Command - `python main.py order find`
+- Input
+  - Id
+- Output
+  - `Order` or `None`
+- Process
+  - Find an order by given id. If order not found return `None`
+
+### All
+- Command - `python main.py order all`
+- Input
+  - Limit (optional)
+- Output
+  - `Order` list
+- Process
+  - Get all orders and return as a list of `Order`
+
+### Update
+- Command - `python main.py order update`
+- Input
+  - Id
+  - Customer id (optional)
+  - Date (optional)
+- Output
+  - `Order` or `None`
+- Process
+  - Find an order by id and update order fields by given values. Items in the order cannot update. If item not found return `None`
+
+### Remove
+- Command - `python main.py order remove`
+- Input
+  - Id
+- Output
+  - `Order` or `None`
+- Process
+  - Find an order by id and remove order. If order not found return `None`
