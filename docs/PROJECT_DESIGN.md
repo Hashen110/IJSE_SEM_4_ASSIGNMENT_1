@@ -49,6 +49,16 @@
 - Process
   - Get all customers and return as a list of `Customer`
 
+### Search
+- Command - `python main.py customer search`
+- Input
+  - Limit (optional)
+  - Keyword
+- Output
+  - `Customer` list
+- Process
+  - Search customers by given keyword. Keyword will search in every field and return as a list of `Customer`
+
 ### Update
 - Command - `python main.py customer update`
 - Input
@@ -101,6 +111,16 @@
   - `Item` list
 - Process
   - Get all items and return as a list of `Item`
+
+### Search
+- Command - `python main.py item search`
+- Input
+  - Limit (optional)
+  - Keyword
+- Output
+  - `Item` list
+- Process
+  - Search items by given keyword. Keyword will search in every field and return as a list of `Item`
 
 ### Update
 - Command - `python main.py item update`

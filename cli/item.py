@@ -57,6 +57,18 @@ class Item:
                 items.append(Item(**data))
         return items
 
+    @classmethod
+    def search(cls, keyword: str):
+        files = os.listdir(cls.__path)
+        items = []
+        for file in files:
+            data = cls.__load(file)
+            if data is not None:
+                for key in data:
+                    if keyword.lower() in str(data[key]).lower():
+                        items.append(Item(**data))
+        return items
+
     def alter(self, name=None, price=None, quantity=None):
         if name is not None:
             self.name = name
@@ -102,9 +114,18 @@ def all(limit) -> None:
         print(f'{idx + 1}.', cus)
 
 
+@click.command('search', help='Search items')
+@click.option('--limit', type=int, required=False)
+@click.option('--keyword', prompt='Keyword', required=True)
+def search(limit, keyword) -> None:
+    items = Item.search(keyword)
+    for idx, cus in enumerate(items[:limit]):
+        print(f'{idx + 1}.', cus)
+
+
 @click.command('update', help='Update item')
 @click.option('--code', prompt='Item code', required=True,
-              help='If you do not know item code run item all command')
+              help='If you do not know item code run item all or search command')
 @click.option('--name', required=False)
 @click.option('--price', required=False, type=float)
 @click.option('--quantity', required=False, type=int)
@@ -138,3 +159,4 @@ item.add_command(find)
 item.add_command(all)
 item.add_command(update)
 item.add_command(remove)
+item.add_command(search)
