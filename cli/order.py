@@ -61,6 +61,18 @@ class Order:
                 orders.append(Order(**data))
         return orders
 
+    @classmethod
+    def search(cls, keyword: str):
+        files = os.listdir(cls.__path)
+        orders = []
+        for file in files:
+            data = cls.__load(file)
+            if data is not None:
+                for key in data:
+                    if keyword.lower() in str(data[key]).lower():
+                        orders.append(Order(**data))
+        return orders
+
     def alter(self, date=None, customer_id=None):
         if date is not None:
             self.date = date
@@ -90,6 +102,15 @@ def find(id) -> None:
 @click.option('--limit', type=int, required=False)
 def all(limit) -> None:
     orders = Order.get_all()
+    for idx, odr in enumerate(orders[:limit]):
+        print(f'{idx + 1}.', odr)
+
+
+@click.command('search', help='Search orders')
+@click.option('--limit', type=int, required=False)
+@click.option('--keyword', prompt='Keyword', required=True)
+def search(limit, keyword) -> None:
+    orders = Order.search(keyword)
     for idx, odr in enumerate(orders[:limit]):
         print(f'{idx + 1}.', odr)
 
@@ -194,3 +215,4 @@ order.add_command(all)
 order.add_command(update)
 order.add_command(remove)
 order.add_command(create)
+order.add_command(search)

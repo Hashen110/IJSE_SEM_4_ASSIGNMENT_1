@@ -112,6 +112,12 @@ python main.py order all
 ```
 Get all orders. Run ``python main.py order all --help`` to see optional flags
 
+#### Search
+```
+python main.py order search
+```
+Search orders by given keyword. Run ``python main.py order search --help`` to see required and optional flags
+
 #### Update
 ```
 python main.py order update

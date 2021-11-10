@@ -177,6 +177,16 @@
 - Process
   - Get all orders and return as a list of `Order`
 
+### Search
+- Command - `python main.py order search`
+- Input
+  - Limit (optional)
+  - Keyword
+- Output
+  - `Order` list
+- Process
+  - Search orders by given keyword. Keyword will search in every field and return as a list of `Order`
+
 ### Update
 - Command - `python main.py order update`
 - Input
