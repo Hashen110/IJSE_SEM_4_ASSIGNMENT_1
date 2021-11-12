@@ -18,6 +18,39 @@
 - Process
   - Delete folders and files which created by `init` command
 
+## User
+
+### Register
+- Command - `python main.py user register`
+- Input
+  - Username
+  - Password
+- Output
+  - `User`
+- Process
+  - Create user with uuid value as json format and save
+  - Create a session with registered user
+
+### Login
+- Command - `python main.py user login`
+- Input
+  - Username
+  - Password
+- Output
+  - `User` or `None`
+- Process
+  - Validate username and password
+  - Login user by creating session file with user id
+
+### Logout
+- Command - `python main.py user logout`
+- Input
+  - None
+- Output
+  - None
+- Process
+  - Logout user by deleting session file
+
 ## Customer
 
 ### Create

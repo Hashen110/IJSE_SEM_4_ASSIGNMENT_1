@@ -6,6 +6,7 @@ import click
 from .customer import Customer, customer
 from .item import Item, item
 from .order import Order, order
+from .user import User, user
 
 
 @click.command('init', help='Initialize app')
@@ -14,6 +15,7 @@ def init() -> None:
         Customer.init()
         Item.init()
         Order.init()
+        User.init()
         print('Initialization complete')
     except OSError:
         print('Error occurred during initialization')
@@ -23,9 +25,8 @@ def init() -> None:
 def destroy() -> None:
     try:
         shutil.rmtree(Path.cwd() / 'db')
+    finally:
         print('App destroyed')
-    except OSError:
-        pass
 
 
 @click.group()
@@ -38,3 +39,4 @@ cli.add_command(destroy)
 cli.add_command(customer)
 cli.add_command(item)
 cli.add_command(order)
+cli.add_command(user)
